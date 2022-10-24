@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Home Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+		type="text/css">
+	<style>
+		body {
+			font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		}
+
+		body,
+		html {
+			height: 100%;
+			margin: 0;
+		}
+
+		.bg {
+			/* The image used */
+			background-image: url("bg.jpg");
+
+			/* Full height */
+			height: 100%;
+
+			/* Center and scale the image nicely */
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.center {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			/* height: 200px; */
+			/* border: 3px solid green; */
+		}
+
+		.banner {
+			/* The image used */
+			background-image: linear-gradient(to right, #232526, #414345);
+			background-size: cover;
+			height: 100%;
+		}
+
+		.flex-container {
+			display: flex;
+			flex-wrap: nowrap;
+			height: 80%;
+		}
+
+		.flex-container>div {
+			width: 50%;
+			margin: 10px;
+			text-align: center;
+		}
+
+		input[type="file"] {
+			display: none;
+		}
+
+		.custom-file-upload {
+			border: 1px solid #ccc;
+			display: inline-block;
+			padding: 6px 12px;
+			cursor: pointer;
+		}
+
+		.res-container {}
+
+		.result-box {
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+			height: 260px;
+			padding: 10px;
+			overflow-y: auto;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<div class="banner">
+		<div>
+			<h1 style="color:Red">Welcome to the site</h1>
+		</div>
+		<div class="flex-container">
+			<div style="align-self: center;color: Red;">
+
+				<label for="file-upload" class="custom-file-upload">
+					<i class="fa fa-cloud-upload"></i> Custom Upload
+				</label>
+				<input id="file-upload" type="file" />
+				<div class=""><button class="form-control btn-primary" id="train" onclick="uploadFile()">Train</button></div>
+				<div class=""><button class="form-control btn-primary" id="predict">Predict</button></div>
+			</div>
+			<div style="border-style: solid;border-color: whitesmoke;border-width: 10px;"
+				clas=="result-box shadow rounded-lg">
+
+				<h6 class="title">Results</h6>
+				<div class="json-result">
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		let files=[]
+		const fileInput = document.querySelector("#file-upload");
+		const uploadFile = file => {
+			console.log("Uploading file...");
+			const API_ENDPOINT = "http://localhost:5000/train";
+			const request = new XMLHttpRequest();
+			const formData = new FormData();
+
+			request.open("POST", API_ENDPOINT, true);
+			request.onreadystatechange = () => {
+				if (request.readyState === 4 && request.status === 200) {
+					console.log(request.responseText);
+				}
+			};
+			formData.append("file", files);
+			
+			request.send(formData);
+		};
+
+		fileInput.addEventListener("change", event => {
+			files = event.target.files;			
+		});
+		/* $(document).ready(function () {
+			$("#customfile").click(function (e) {
+				e.preventDefault();
+				d={"filepath":"Training_Batch_Files"}
+				$.ajax({
+					//change url below
+					url: "http://localhost:5000/train",
+					type: "POST",
+					contentType: "application/json; charset=utf-8",
+					dataType: "json",
+					data: JSON.stringify(d),					
+					success: function (response) {
+						$(".json-result").html('<p>"Prediction File created at !!!Prediction_Output_File/Predictions.csvand few of the predictions are"</p><pre>' + response + '</pre>');
+					}
+				});
+			});
+		}); */
+	</script>
+
+</body>
+
+</html>

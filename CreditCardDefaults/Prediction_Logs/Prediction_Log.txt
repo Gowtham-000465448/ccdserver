@@ -1,0 +1,37 @@
+2022-10-18/13:26:52		Valid File name!! File moved to GoodRaw Folder :: CreditCardPaymentHistory_28011962_120212.csv
+2022-10-18/13:26:52		Column Length Validation Started!!
+2022-10-18/13:26:52		Column Length Validation Completed!!
+2022-10-18/13:26:52		Missing Values Validation Started!!
+2022-10-18/13:26:52		 CreditCardPaymentHistory_28011962_120212.csv: Quotes added successfully!!
+2022-10-18/13:26:52		Opened Prediction database successfully
+2022-10-18/13:26:52		Tables created successfully!!
+2022-10-18/13:26:52		Closed Prediction database successfully
+2022-10-18/13:26:52		Opened Prediction database successfully
+2022-10-18/13:27:02		Opened Prediction database successfully
+2022-10-18/13:27:02		File exported successfully!!!
+2022-10-18/13:26:52		Validation files for Training
+2022-10-18/13:26:52		Data Validation Complete!!
+2022-10-18/13:26:52		Starting Data Transforamtion!!
+2022-10-18/13:26:52		DataTransformation Completed!!!
+2022-10-18/13:26:52		Creating Training_Database and tables on the basis of given schema!!!
+2022-10-18/13:26:52		Table creation Completed!!
+2022-10-18/13:26:52		Insertion of Data into Table started!!!!
+2022-10-18/13:27:02		Insertion in Table completed!!!
+2022-10-18/13:27:02		Deleting Good Data Folder!!!
+2022-10-18/13:27:02		Good_Data folder deleted!!!
+2022-10-18/13:27:02		Moving bad files to Archive and deleting Bad_Data folder!!!
+2022-10-18/13:27:02		Validation Operation completed!!
+2022-10-18/13:27:02		Extracting csv file from table
+2022-10-18/13:27:02		Start of Prediction
+2022-10-18/13:27:02		Entered the is_null_present method of the Preprocessor class
+2022-10-18/13:27:02		Finding missing values is a success.Data written to the null values file. Exited the is_null_present method of the Preprocessor class
+2022-10-18/13:27:02		Entered the scale_numerical_columns method of the Preprocessor class
+2022-10-18/13:27:02		scaling for numerical values successful. Exited the scale_numerical_columns method of the Preprocessor class
+2022-10-18/13:27:02		Entered the load_model method of the File_Operation class
+2022-10-18/13:27:02		Model File KMeans loaded. Exited the load_model method of the Model_Finder class
+2022-10-18/13:27:02		Entered the find_correct_model_file method of the File_Operation class
+2022-10-18/13:27:02		Exited the find_correct_model_file method of the Model_Finder class.
+2022-10-18/13:27:02		Entered the load_model method of the File_Operation class
+2022-10-18/13:27:02		Model File XGBoost1 loaded. Exited the load_model method of the Model_Finder class
+2022-10-18/13:27:02		End of Prediction
+2022-10-18/13:27:02		Successful End of Prediction
